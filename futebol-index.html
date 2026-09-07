@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Futebol 2026</title>
+    <link rel="stylesheet" href="futebol-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body class="brasilGeral-theme">
+    <div class="background-pattern"></div>
+    
+    <div class="container">
+        <header>
+            <div class="logo-header">
+                <div class="sport-icon">⚽</div>
+                <div class="header-text">
+                    <h1 id="mainTitle">Simulador de Futebol</h1>
+                    <p class="subtitle">Temporada 2026 • Todas as Ligas</p>
+                </div>
+            </div>
+            
+            <div class="league-selector">
+                <button class="league-btn" data-league="geral">🌍 Geral</button>
+                <button class="league-btn active" data-league="brasilGeral">🇧🇷 Brasil</button>
+                <button class="league-btn" data-league="brasileiraoA">🇧🇷 Série A</button>
+                <button class="league-btn" data-league="brasileiraoB">🇧🇷 Série B</button>
+                <button class="league-btn" data-league="champions">🇪🇺 Europa</button>
+                <button class="league-btn" data-league="americaGeral">🌎 Américas</button>
+                <button class="league-btn" data-league="america">🌎 Sul-Americanos</button>
+            </div>
+        </header>
+
+        <div class="game-setup">
+            <div class="team-selector home-team">
+                <div class="selector-header">
+                    <span class="home-badge">CASA</span>
+                    <label for="homeTeam">Time Mandante</label>
+                </div>
+                <select id="homeTeam">
+                    <option value="">Selecione o time...</option>
+                </select>
+                <div class="team-info" id="homeTeamInfo">
+                    <div class="empty-state">
+                        <div class="empty-icon">🏟️</div>
+                        <p>Selecione o time da casa</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="vs-divider">
+                <div class="vs-circle">
+                    <span>VS</span>
+                </div>
+            </div>
+
+            <div class="team-selector away-team">
+                <div class="selector-header">
+                    <span class="away-badge">VISITANTE</span>
+                    <label for="awayTeam">Time Visitante</label>
+                </div>
+                <select id="awayTeam">
+                    <option value="">Selecione o time...</option>
+                </select>
+                <div class="team-info" id="awayTeamInfo">
+                    <div class="empty-state">
+                        <div class="empty-icon">✈️</div>
+                        <p>Selecione o time visitante</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-options">
+            <div class="option-group">
+                <label class="option-label">Quantidade de Jogos</label>
+                <div class="game-count-selector">
+                    <button class="count-btn active" data-count="1">1 Jogo</button>
+                    <button class="count-btn" data-count="2">2 Jogos</button>
+                </div>
+            </div>
+            
+            <div class="option-group" id="penaltiesOption">
+                <label class="option-label">
+                    <input type="checkbox" id="penaltiesEnabled" checked>
+                    <span>Pênaltis em caso de empate</span>
+                </label>
+                <p class="option-note">Se ativado, jogos empatados vão para os pênaltis</p>
+            </div>
+        </div>
+
+        <button id="simulateBtn" class="simulate-btn" disabled>
+            <span class="btn-glow"></span>
+            <span class="btn-content">
+                <span class="btn-icon">⚽</span>
+                <span class="btn-text">Simular Partida</span>
+            </span>
+        </button>
+
+        <div id="result" class="result-container hidden">
+            <div class="result-header">
+                <div class="status-wrapper">
+                    <div class="live-indicator"></div>
+                    <span class="game-status">ENCERRADO</span>
+                </div>
+                <h2 id="seriesTitle">Resultado</h2>
+            </div>
+
+            <div id="gamesContainer" class="games-container"></div>
+
+            <div class="action-buttons">
+                <button id="simulateAgain" class="secondary-btn">
+                    <span class="btn-icon">🔄</span>
+                    <span>Nova Simulação</span>
+                </button>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-content">
+                <p class="footer-text" id="footerText">Simulador de Futebol 2026</p>
+                <p class="footer-note">Fator casa: 10% • Empates possíveis • Aleatoriedade: 30%</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="futebol-script.js"></script>
+</body>
+</html>
